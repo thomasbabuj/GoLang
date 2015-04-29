@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-  // Float values
-  //  Automatically inferr the variable type
-  pi := 2.343434343
-  fmt.Printf("Float Values: %.2f \n", pi)
+  // Int values
+  nine := 9
+  fmt.Printf("Value : %d\n", nine)
 }
