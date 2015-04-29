@@ -6,12 +6,14 @@ import (
 
 /*
 To assign automatic values to variables using iota keyword
+
+using expression with iota
  */
 const (
 
   message = "The answers are %d %d \n"
 
-  answer1 = iota
+  answer1 = iota * 2
 
   answer2
 )
