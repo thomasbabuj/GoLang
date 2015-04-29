@@ -5,9 +5,8 @@ import (
 )
 
 func main() {
-  // Bytes
-  b := byte(65)
+  // Go String
+  atoz := "the quick brown fox jumps over the lazy dog \n"
 
-  // printing the value in hex format
-  fmt.Printf("Value : %x\n", b)
+  fmt.Printf("String: %s", atoz)
 }
