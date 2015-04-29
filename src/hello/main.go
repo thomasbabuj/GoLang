@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 
-  // declare and assign value for a variable
-  // short form
-  message := "Hello, World! \n"
+  message := "The answer to life is %d \n"
 
-  fmt.Printf(message)
+  answer := 42
+
+  fmt.Printf(message, answer)
 }
