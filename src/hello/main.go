@@ -6,6 +6,7 @@ import (
 
 func main() {
   // Int values
-  nine := 9
+  //  Assigned type ( another method )
+  nine := uint32(9)
   fmt.Printf("Value : %d\n", nine)
 }
