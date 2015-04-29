@@ -4,16 +4,19 @@ import (
   "fmt"
 )
 
-// Since its a constant these variable can be only used inside main function
-// If we want to use outside main we need to constant variable name first letter should be "Captital"
+/*
+To assign automatic values to variables using iota keyword
+ */
 const (
 
-  message = "The answer to life is %d \n"
+  message = "The answers are %d %d \n"
 
-  answer = 42
+  answer1 = iota
+
+  answer2
 )
 
 func main() {
-  answer += 1
-  fmt.Printf(message, answer)
+
+  fmt.Printf(message, answer1, answer2)
 }
