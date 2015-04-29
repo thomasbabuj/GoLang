@@ -5,10 +5,9 @@ import (
 )
 
 func main() {
-  // Boolean
-  // In Go if you declare a variable without assign any values then by default it gets "Zero values"
-  var isTrue bool
+  // Bytes
+  b := byte(65)
 
-  // Since we didn't assign any value for isTrue variable now we get false as our output
-  fmt.Printf("Value : %t\n", isTrue)
+  // printing the value in hex format
+  fmt.Printf("Value : %x\n", b)
 }
