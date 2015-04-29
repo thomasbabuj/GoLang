@@ -6,7 +6,7 @@ import (
 
 func main() {
   // Go String
-  /* declaring string with backquotes '`' means, anything in between start and end backquotes will be treated as a full string. So we dont need to worry about escaping the strings for single or double quotes etc ..
+  /* declaring string with back quotes '`' means, anything in between start and end back quotes will be treated as a full string. So we don't need to worry about escaping the strings for single or double quotes etc ..
   */
 
   atoz := `the "quick" brown fox jumps over the lazy dog \n`
