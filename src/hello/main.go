@@ -1,10 +1,10 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+)
 
-// Using a constant variable
-//
-const (
+var (
 
   message = "The answer to life is %d \n"
 
@@ -12,6 +12,6 @@ const (
 )
 
 func main() {
-
+  answer += 1
   fmt.Printf(message, answer)
 }
