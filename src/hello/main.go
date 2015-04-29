@@ -6,6 +6,6 @@ import (
 
 func main() {
   // Float values
-  var pi  float64 = 3.14
-  fmt.Printf("Float Values: %f \n", pi)
+  var pi  float64 = 3.1421212121
+  fmt.Printf("Float Values: %.2f \n", pi)
 }
