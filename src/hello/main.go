@@ -7,6 +7,9 @@ import (
 func main() {
   // Go String
   atoz := "the quick brown fox jumps over the lazy dog \n"
-  // split strings
-  fmt.Printf("String: %s \n", atoz[15:19])
+
+  for i, r := range atoz {
+    // Printing the index and chars
+    fmt.Printf("%d %c \n", i, r)
+  }
 }
