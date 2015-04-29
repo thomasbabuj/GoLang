@@ -4,7 +4,9 @@ import (
   "fmt"
 )
 
-var (
+// Since its a constant these variable can be only used inside main function
+// If we want to use outside main we need to constant variable name first letter should be "Captital"
+const (
 
   message = "The answer to life is %d \n"
 
