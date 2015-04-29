@@ -4,21 +4,8 @@ import (
   "fmt"
 )
 
-/*
-To assign automatic values to variables using iota keyword
-
-using expression with iota
- */
-const (
-
-  message = "The answers are %d %d \n"
-
-  answer1 = iota * 2
-
-  answer2
-)
-
 func main() {
-
-  fmt.Printf(message, answer1, answer2)
+  // Float values
+  var pi  float64 = 3.14
+  fmt.Printf("Float Values: %f \n", pi)
 }
