@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-  // Int values
-  //  Assigned type ( another method )
-  nine := uint32(9)
-  fmt.Printf("Value : %d\n", nine)
+  // Boolean
+  isTrue := false
+
+  fmt.Printf("Value : %t\n", isTrue)
 }
