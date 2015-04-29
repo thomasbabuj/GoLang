@@ -6,6 +6,7 @@ import (
 
 func main() {
   // Float values
-  var pi  float64 = 3.1421212121
+  //  Automatically inferr the variable type
+  pi := 2.343434343
   fmt.Printf("Float Values: %.2f \n", pi)
 }
