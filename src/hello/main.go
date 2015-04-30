@@ -26,15 +26,15 @@ func printer(words []string) {
 }
 
 func main() {
-  words := []string{"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
+   // createing a new slice with using make
+   // created a new slice with the max size of 4
+   words := make([]string, 4)
+   words[0] = "The"
+   words[1] = "Quick"
+   words[2] = "Brown"
+   words[3] = "Fox"
 
-  fmt.Printf("Array Size : %d \n", len(words))
-
-  printer(words[2:4])
-
-  words[2] = "blue"
-
-  printer(words[2:4])
+   printer(words)
 }
 
 
