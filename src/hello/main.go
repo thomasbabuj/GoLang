@@ -6,24 +6,10 @@ import (
 
 func main() {
 
-  atoz := "the quick brown fox jumps over the lazy dog"
+  // Looping in Go
 
-  vowels := 0
-  consonants := 0
-  zeds := 0
-
-  for _, r := range atoz {
-    switch r {
-      case 'a', 'e', 'o', 'u' :
-        vowels += 1
-      case 'z' :
-        zeds += 1
-        fallthrough
-      default :
-        consonants += 1
-    }
+  for {
+    fmt.Printf("Hello, World \n ")
   }
-
-  fmt.Printf("Vowels: %d; Consonants: %d  ( Zeds: %d ) \n", vowels, consonants, zeds)
 
 }
