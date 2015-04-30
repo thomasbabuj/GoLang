@@ -29,8 +29,15 @@ func main() {
 	// to itetrate maps we can use for .. range
 	// the results won't be in order we specify, so in order to list in order we need to do sort
 
-	for month, days := range dayMonths {
-		fmt.Printf("%s has %d days \n", month, days)
+	has31 := 0
+
+	for _, days := range dayMonths {
+		if days == 31 {
+			has31 += 1
+		}
+
 	}
+
+	fmt.Printf("%d months have 31 days \n", has31)
 
 }
