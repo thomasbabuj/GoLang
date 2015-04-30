@@ -33,6 +33,9 @@ func main() {
 
 	delete(dayMonths, "Feb")
 
+	// If we try to delete a element which is not in the map, then go wont complain. no error.
+	delete(dayMonths, "February")
+
 	has28 := 0
 
 	for _, days := range dayMonths {
