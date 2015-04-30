@@ -26,6 +26,7 @@ func main() {
 	dayMonths["Nov"] = 30
 	dayMonths["Dec"] = 31
 
-	// Simple Map usage
-	fmt.Printf("Days in February : %d \n", dayMonths["Feb"])
+	// if you access the element which is not in the map then we get zero value
+	// related to the type specified. In our case since our value type is 'int' we get 0
+	fmt.Printf("Days in February : %d \n", dayMonths["January"])
 }
