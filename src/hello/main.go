@@ -26,7 +26,13 @@ func main() {
 	dayMonths["Nov"] = 30
 	dayMonths["Dec"] = 31
 
-	// if you access the element which is not in the map then we get zero value
-	// related to the type specified. In our case since our value type is 'int' we get 0
-	fmt.Printf("Days in February : %d \n", dayMonths["January"])
+	// to distinguish between error and zero value, go provide syntax called "comma ok ( , ok)"
+	days, ok := dayMonths["Jan"]
+
+	if !ok {
+		fmt.Printf("Can't get days for January \n")
+	} else {
+		fmt.Printf("%d \n", days)
+	}
+
 }
