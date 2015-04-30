@@ -10,7 +10,7 @@ import (
  */
 
 func main() {
-	f, err := os.Open("hellowworld.txt")
+	f, err := os.Open("test.txt")
 
 	if err != nil {
 		fmt.Printf("%s \n", err)
