@@ -8,33 +8,29 @@ import (
 // Built-in types
 
 /*
-*  When we pass an array to a function, actually passes the copy of the array
-*  so modifying the array in function will not change the value of the original array
-*
- */
+*  Usually we use slice over array. Slice is a window into underlying array
+*  In slice we dont specify the length for the array Eg:  words := []string{"kkk", "ddfsfd"}
+*  Since we are using slice, we can change original array value in a function
+*/
 
-func printer(words [4]string) {
-  for _, word := range words {
-    fmt.Printf("%s ", word)
-  }
+func printer(words []string) {
+   for _,word := range words {
+     fmt.Printf(" %s ", word)
+   }
 
-  fmt.Printf("\n")
+   fmt.Printf("\n")
 
-  words[2] = "blue"
-
+   words[2] = "blue"
 }
-
 
 func main() {
-    // specify array size
-    words := [4]string{"the", "quick", "brown", "fox"}
+  words := []string{"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
 
-    printer(words)
+  fmt.Printf("Array Size : %d \n", len(words))
 
-    // Even though we change the value brown to blue in a printer function, now its shows the original array
-    fmt.Printf("checking the words: %s", words[2])
+  printer(words)
 
+  printer(words)
 }
-
 
 
