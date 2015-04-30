@@ -4,22 +4,17 @@ import (
   "fmt"
 )
 
-//  multiple return values
- func printer(msg string) (string, error) {
+// Using Deffer keyword
+//  defer section will be called after the return statement in a function
+ func printer(msg string) error {
+   // here we are adding new line after the function returns value
+   defer fmt.Printf("\n")
+  _, err := fmt.Printf("%s", msg)
 
-  msg += "\n"
-
-  _, err := fmt.Printf("%s \n", msg)
-
-  return msg, err
+  return err
 }
 
 func main() {
 
-  appendedMsg ,err := printer("Hello, World");
-  // %q form prints out a user friendly ( readable way)
-  if err == nil {
-    fmt.Printf("%q \n", appendedMsg)
-  }
-
+  printer("Hello, World!")
 }
