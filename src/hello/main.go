@@ -7,9 +7,9 @@ import (
 func main() {
 
   // Looping in Go
-  // for is like a while loop
-  for counter:=0; counter <  10; counter +=1 {
-    fmt.Printf("Hello, World \n ")
+  //  simultaneous variable assignment
+  for i, j := 0, 1; i < 10; i, j = i+1, j*2 {
+    fmt.Printf("%d Hello, World \n", j)
   }
 
 }
