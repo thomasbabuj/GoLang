@@ -7,13 +7,13 @@ import (
 // Using Defer keyword
 // Passing unlimited nos of parameters to a function
 
-func printer(msgs ...string) {
-  for _,msgs := range msgs {
-    fmt.Printf("%s \n", msgs)
+func printer(format string, msgs ...string) {
+  for _, msg := range msgs {
+    fmt.Printf(format, msg)
   }
 }
 
 func main() {
-  printer("Hello, world!", "How are u doing")
+  printer("%x \n", "Hello world!", "How are you?")
 }
 
