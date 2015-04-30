@@ -1,27 +1,19 @@
 package main
 
 import (
-  "os"
-
+  "fmt"
 )
 
 // Using Defer keyword
-//  defer section will be called after the return statement in a function
-//  example of using defer with open and close a file
-//  defer is how we deal with clean up in a function
- func printer(msg string) error {
-  msgconvert := []byte(msg)
-  f, err := os.Create("hellowworld.txt")
-  if err != nil {
-    return err
-  }
-  defer f.Close()
+// Declaring a variable called error "e"
+// implicitly return values with out specify variable name
+func printer(msg string) (e error) {
 
-  f.Write(msgconvert)
-  return err
+  // since we are getting value e here, this function automatically returns it.
+  _, e = fmt.Printf("%s\n", msg)
+  return
 }
 
 func main() {
-
   printer("Hello, World!")
 }
