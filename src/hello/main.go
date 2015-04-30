@@ -29,7 +29,7 @@ func main() {
    // creating a slice with initial value zero and maximum 4
    // but using append function we can add more values
    //
-   words := make([]string, 0, 4)
+   words := make([]string, 10, 4)  //  Error : len larger than cap in make([]string)
 
     fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
 
