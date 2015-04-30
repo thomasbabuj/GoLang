@@ -26,13 +26,11 @@ func main() {
 	dayMonths["Nov"] = 30
 	dayMonths["Dec"] = 31
 
-	// to distinguish between error and zero value, go provide syntax called "comma ok ( , ok)"
-	days, ok := dayMonths["Jan"]
+	// to itetrate maps we can use for .. range
+	// the results won't be in order we specify, so in order to list in order we need to do sort
 
-	if !ok {
-		fmt.Printf("Can't get days for January \n")
-	} else {
-		fmt.Printf("%d \n", days)
+	for month, days := range dayMonths {
+		fmt.Printf("%s has %d days \n", month, days)
 	}
 
 }
