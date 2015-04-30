@@ -27,31 +27,22 @@ func printer(words []string) {
 
 func main() {
    // creating a slice with initial value zero and maximum 4
-   // but using append function we can add more values
-   // when the slice size over pass with the capacity go automatically increase the size
+   // using copy() we can make copy of the slice
+
    words := make([]string, 0, 4)
 
-    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
+   fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
 
    words = append(words, "The")
    words = append(words, "Quick")
    words = append(words, "Brown")
    words = append(words, "Fox")
 
-    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
+   newwords := make([]string, 4)
+   copy(newwords, words)
 
-   words = append(words, "Jumps")
-   words = append(words, "Over")
-   words = append(words, "The")
-   words = append(words, "lazy")
+   printer(newwords)
 
-   fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
-
-    words = append(words, "Dog")
-
-    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
-
-    printer(words)
 }
 
 
