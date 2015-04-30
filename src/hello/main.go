@@ -30,16 +30,28 @@ func main() {
    // but using append function we can add more values
    //
    words := make([]string, 0, 4)
+
+    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
+
    words = append(words, "The")
    words = append(words, "Quick")
    words = append(words, "Brown")
    words = append(words, "Fox")
-   words = append(words, "bbbbb")
-   words = append(words, "miououou")
 
-   printer(words)
+    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
 
-   fmt.Printf("Size : %d", len(words))
+   words = append(words, "Jumps")
+   words = append(words, "Over")
+   words = append(words, "The")
+   words = append(words, "lazy")
+
+   fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
+
+    words = append(words, "Dog")
+
+    fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
+
+    printer(words)
 }
 
 
