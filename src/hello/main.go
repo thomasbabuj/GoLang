@@ -26,15 +26,20 @@ func printer(words []string) {
 }
 
 func main() {
-   // createing a new slice with using make
-   // created a new slice with the max size of 4
-   words := make([]string, 4)
-   words[0] = "The"
-   words[1] = "Quick"
-   words[2] = "Brown"
-   words[3] = "Fox"
+   // creating a slice with initial value zero and maximum 4
+   // but using append function we can add more values
+   //
+   words := make([]string, 0, 4)
+   words = append(words, "The")
+   words = append(words, "Quick")
+   words = append(words, "Brown")
+   words = append(words, "Fox")
+   words = append(words, "bbbbb")
+   words = append(words, "miououou")
 
    printer(words)
+
+   fmt.Printf("Size : %d", len(words))
 }
 
 
