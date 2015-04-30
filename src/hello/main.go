@@ -12,29 +12,23 @@ import (
 */
 
 func main() {
-	dayMonths := make(map[string]int)
-	dayMonths["Jan"] = 31
-	dayMonths["Feb"] = 28
-	dayMonths["Mar"] = 31
-	dayMonths["Apr"] = 30
-	dayMonths["May"] = 31
-	dayMonths["Jun"] = 30
-	dayMonths["Jul"] = 31
-	dayMonths["Aug"] = 31
-	dayMonths["Sep"] = 30
-	dayMonths["Oct"] = 31
-	dayMonths["Nov"] = 30
-	dayMonths["Dec"] = 31
 
-	/*
-	 *  If you wanna delete certain element from a map we can use delete()
-	 *  delete( <Name of the map>, <key>)
-	 */
+	// Allocating the values which we already know for the map can be done like,
 
-	delete(dayMonths, "Feb")
-
-	// If we try to delete a element which is not in the map, then go wont complain. no error.
-	delete(dayMonths, "February")
+	dayMonths := map[string]int{
+		"Jan": 31,
+		"Feb": 28,
+		"Mar": 31,
+		"Apr": 30,
+		"May": 31,
+		"Jun": 30,
+		"Jul": 31,
+		"Aug": 31,
+		"Sep": 30,
+		"Oct": 31,
+		"Nov": 30,
+		"Dec": 31,
+	}
 
 	has28 := 0
 
