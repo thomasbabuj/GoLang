@@ -13,6 +13,10 @@ import (
 *  Since we are using slice, we can change original array value in a function
 */
 
+/*
+Currently we already know the value of the slice ( static slice )
+ */
+
 func printer(words []string) {
    for _,word := range words {
      fmt.Printf(" %s ", word)
@@ -25,6 +29,10 @@ func main() {
   words := []string{"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
 
   fmt.Printf("Array Size : %d \n", len(words))
+
+  printer(words[2:4])
+
+  words[2] = "blue"
 
   printer(words[2:4])
 }
