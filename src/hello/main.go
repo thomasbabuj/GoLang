@@ -7,6 +7,7 @@ import (
 func main() {
 
   // Looping in Go
+  // for is like a while loop
   var counter int
 
   counter = 0
