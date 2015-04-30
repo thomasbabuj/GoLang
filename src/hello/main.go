@@ -42,6 +42,10 @@ func main() {
    copy(newwords, words)
 
    printer(newwords)
+   newwords[2] = "Blue"
+
+   printer(newwords)
+   printer(words)
 
 }
 
