@@ -1,52 +1,31 @@
 package main
 
 import (
-  "fmt"
+	"fmt"
 )
 
-// Array , Slices
-// Built-in types
-
+// Maps examples
 /*
-*  Usually we use slice over array. Slice is a window into underlying array
-*  In slice we dont specify the length for the array Eg:  words := []string{"kkk", "ddfsfd"}
-*  Since we are using slice, we can change original array value in a function
+   - Maps have index and it has corresponding values associated with this
+   - Index can be any in type of value
+   - We can use make() to create a new map
 */
 
-/*
-Currently we already know the value of the slice ( static slice )
- */
-
-func printer(words []string) {
-   for _,word := range words {
-     fmt.Printf(" %s ", word)
-   }
-
-   fmt.Printf("\n")
-}
-
 func main() {
-   // creating a slice with initial value zero and maximum 4
-   // using copy() we can make copy of the slice
+	dayMonths := make(map[string]int)
+	dayMonths["Jan"] = 31
+	dayMonths["Feb"] = 28
+	dayMonths["Mar"] = 31
+	dayMonths["Apr"] = 30
+	dayMonths["May"] = 31
+	dayMonths["Jun"] = 30
+	dayMonths["Jul"] = 31
+	dayMonths["Aug"] = 31
+	dayMonths["Sep"] = 30
+	dayMonths["Oct"] = 31
+	dayMonths["Nov"] = 30
+	dayMonths["Dec"] = 31
 
-   words := make([]string, 0, 4)
-
-   fmt.Printf("Size : %d , Capacity : %d \n", len(words), cap(words))
-
-   words = append(words, "The")
-   words = append(words, "Quick")
-   words = append(words, "Brown")
-   words = append(words, "Fox")
-
-   newwords := make([]string, 4)
-   copy(newwords, words)
-
-   printer(newwords)
-   newwords[2] = "Blue"
-
-   printer(newwords)
-   printer(words)
-
+	// Simple Map usage
+	fmt.Printf("Days in February : %d \n", dayMonths["Feb"])
 }
-
-
