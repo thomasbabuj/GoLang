@@ -26,18 +26,22 @@ func main() {
 	dayMonths["Nov"] = 30
 	dayMonths["Dec"] = 31
 
-	// to itetrate maps we can use for .. range
-	// the results won't be in order we specify, so in order to list in order we need to do sort
+	/*
+	 *  If you wanna delete certain element from a map we can use delete()
+	 *  delete( <Name of the map>, <key>)
+	 */
 
-	has31 := 0
+	delete(dayMonths, "Feb")
+
+	has28 := 0
 
 	for _, days := range dayMonths {
-		if days == 31 {
-			has31 += 1
+		if days == 28 {
+			has28 += 1
 		}
 
 	}
 
-	fmt.Printf("%d months have 31 days \n", has31)
+	fmt.Printf("%d months have 28 days \n", has28)
 
 }
