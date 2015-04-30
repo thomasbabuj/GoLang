@@ -24,5 +24,11 @@ func main() {
 
 	n, err := f.Read(b)
 
-	fmt.Printf("%d : % x\n", n, b)
+	// we can't print this as string
+	fmt.Printf("%d : % c\n", n, b)
+
+	// we need to create a new string variable
+	stringVaribale := string(b)
+
+	fmt.Printf("%d %s \n", n, stringVaribale)
 }
