@@ -2,15 +2,16 @@ package main
 
 import (
   "fmt"
+  "os"
 )
 
 func main() {
-  // Go String
-  /* declaring string with back quotes '`' means, anything in between start and end back quotes will be treated as a full string. So we don't need to worry about escaping the strings for single or double quotes etc ..
-  */
+  // Go Printf returns also returns errors
+  if  numberBytes, theError := fmt.Printf("Hello, world! \n"); theError != nil {
+    os.Exit(1)
+  }
 
-  atoz := `the "quick" brown fox jumps over the lazy dog \n`
+  // since numberBytes was declared in if scope so its not available here
+  fmt.Printf("Printed %d bytes \n", numberBytes)
 
-  // This example \n wont be removed since we declare the string with '`'
-  fmt.Printf("String : %s \n", atoz)
 }
