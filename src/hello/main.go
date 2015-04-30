@@ -19,8 +19,6 @@ func printer(words []string) {
    }
 
    fmt.Printf("\n")
-
-   words[2] = "blue"
 }
 
 func main() {
@@ -28,9 +26,7 @@ func main() {
 
   fmt.Printf("Array Size : %d \n", len(words))
 
-  printer(words)
-
-  printer(words)
+  printer(words[2:4])
 }
 
 
