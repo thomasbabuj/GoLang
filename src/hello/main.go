@@ -5,36 +5,22 @@ import (
 	"os"
 )
 
+// Errors
+
 /*
-*  Byte Slice
+* Go programs are not built around with exceptions. its
+* a bad idea to use exeception.
  */
 
-func main() {
-	f, err := os.Open("test.txt")
+// Built in type error handling
+func printer(msg string) error {
+	_, err := fmt.Printf("%s \n", msg)
 
-	if err != nil {
-		fmt.Printf("%s \n", err)
+	return err
+}
+
+func main() {
+	if err := printer("Hello, world!"); err != nil {
 		os.Exit(1)
 	}
-
-	defer f.Close()
-
-	// byte slice
-	b := make([]byte, 100)
-
-	n, err := f.Read(b)
-
-	// we can't print this as string
-	fmt.Printf("%d : % c\n", n, b)
-
-	// we need to create a new string variable
-	stringVaribale := string(b)
-
-	fmt.Printf("%d %s \n", n, stringVaribale)
-
-	// writing into to a file
-	// since wirte function need byte type we need to convert the string
-	// to byte slice
-	someString := "foo bar"
-	f.Write([]byte(someString))
 }
