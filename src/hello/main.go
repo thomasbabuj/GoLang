@@ -31,4 +31,10 @@ func main() {
 	stringVaribale := string(b)
 
 	fmt.Printf("%d %s \n", n, stringVaribale)
+
+	// writing into to a file
+	// since wirte function need byte type we need to convert the string
+	// to byte slice
+	someString := "foo bar"
+	f.Write([]byte(someString))
 }
