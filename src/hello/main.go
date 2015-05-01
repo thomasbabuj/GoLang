@@ -37,7 +37,12 @@ func printer(msg string) error {
 
 func main() {
 	if err := printer(""); err != nil {
-		fmt.Printf("printer failed: %s\n", err)
+		// since we used error pcakge, now we can compare the error msg
+		if err == errorEmptyString {
+			fmt.Printf("You rited to print a empty string!")
+		} else {
+			fmt.Printf("printer failed: %s\n", err)
+		}
 		os.Exit(1)
 	}
 }
