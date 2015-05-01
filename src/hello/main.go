@@ -21,6 +21,10 @@ var (
 * Another way to defined errors is to use Error package. the advantage here is
 * we can assigned what type of error etc..
 *
+* Go also has exception handling mechanics, which is called panic and recover
+* which we use very rarely. Only use panic when we need to terminate the app.
+*
+*
  */
 
 // Built in type error handling
@@ -28,7 +32,7 @@ func printer(msg string) error {
 	// Using Fmt.Errorf to give custom error msg
 	if msg == "" {
 		// use the error variable declared
-		return errorEmptyString
+		panic(errorEmptyString)
 	}
 	_, err := fmt.Printf("%s \n", msg)
 
