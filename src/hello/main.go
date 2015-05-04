@@ -33,9 +33,9 @@ func main() {
     fmt.Printf("%s ", word)
 
     word = <- wordChannel
-    fmt.Printf("%s ", word)
+    fmt.Printf("%s\n", word)
 
     // This one won't receive anything since the channel is already closed because it only has 4 words
-    word = <- wordChannel
-    fmt.Printf("%s \n", word)
+    word, ok := <- wordChannel
+    fmt.Printf("%s %t \n", word, ok)
 }
