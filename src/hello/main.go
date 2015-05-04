@@ -4,22 +4,39 @@ import (
     "fmt"
 )
 
-func makeId(idChan chan int){
-    var id int
-    id = 0
+// select key word will allow go program to listen and communicate to multiple channel at the same time
 
+func emit(wordChannel chan string, done chan bool) {
+    words := []string{"the", "quick", "brown", "fox"}
+    i := 0
+
+    // infinite loop, if somebody is listening to receive  then they will get the next word
+    // and if it receives done channel then it terminates the channel.
     for {
-        idChan <- id
-        id += 1
+        select {
+            case wordChannel <- words[i] :
+                i += 1
+                if i == len(words) {
+                    i = 0
+                }
+
+            case <- done:
+                close(done)
+                return
+        }
     }
 }
 
 func main() {
-    idChan := make(chan int)
+    wordCh := make(chan string)
+    doneCh := make(chan bool)
 
-    go makeId(idChan)
+    go emit(wordCh, doneCh)
 
-    fmt.Printf("%d \n", <-idChan)
-    fmt.Printf("%d \n", <-idChan)
-    fmt.Printf("%d \n", <-idChan)
+    for i:=0;  i< 100; i++ {
+        fmt.Printf("%s ", <-wordCh)
+    }
+
+    doneCh <- true
 }
+
