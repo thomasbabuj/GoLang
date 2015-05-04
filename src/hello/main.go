@@ -22,7 +22,7 @@ func emit(wordChannel chan string, done chan bool) {
 
             case <- done:
                 fmt.Printf("Go done \n")
-                close(done)
+                done<-true
                 return
         }
     }
@@ -38,7 +38,11 @@ func main() {
         fmt.Printf("%s ", <-wordCh)
     }
 
-    // after running 100 times, this will terminates the channel
+    // This code sends signal to the select in the emit func
     doneCh <- true
+
+    // this will wait for the response. if there is no return true from done case,
+    // then we will get deadlock error.
+    <-doneCh
 }
 
