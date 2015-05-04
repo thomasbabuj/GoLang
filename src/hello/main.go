@@ -22,6 +22,8 @@ func main() {
     go emit(wordChannel)
     go emit(wordChannel)
 
+    // this code got deadlock error mainly because, this range wordchannel is waiting for
+    // response from emit channel, even though the channel finished running.
     for word := range wordChannel {
         fmt.Printf("%s ", word)
     }
