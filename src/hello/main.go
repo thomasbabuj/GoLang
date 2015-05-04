@@ -30,12 +30,12 @@ func getPage(url string) (int, error) {
 
 // multiple go routines to receive url
 
-func worker( urlCh chan  string, sizeCh chan string) {
+func worker( urlCh chan  string, sizeCh chan string, workerId int) {
     for {
         url := <-urlCh
             length, err := getPage(url)
             if err == nil {
-                sizeCh <- fmt.Sprintf("%s has length %d", url ,length)
+                sizeCh <- fmt.Sprintf("%s has length %d ( %d )", url ,length, workerId)
             } else {
                 sizeCh <- fmt.Sprintf("Error getting %s : %s", url ,err)
             }
@@ -47,7 +47,9 @@ func main() {
     urlCh := make(chan string)
     sizeCh := make(chan string)
 
-    go worker(urlCh, sizeCh)
+    for i:=0; i < 10; i++ {
+        go worker(urlCh, sizeCh, i)
+    }
 
     urlCh <- "http://www.oreilly.com/"
     fmt.Printf("%s \n", <-sizeCh)
