@@ -5,15 +5,21 @@ import (
     "time"
 )
 
-// select key word will allow go program to listen and communicate to multiple channel at the same time
+// Channel of channels
+// Here the first param is channel of channels, so to inside this function we are creating a new channel for word and
+// send the wordchannel back to the main function.
 
-func emit(wordChannel chan string, done chan bool) {
+func emit(chanChannel chan chan string, done chan bool) {
+
+    wordChannel := make(chan string)
+    chanChannel <- wordChannel
+
+    defer close(wordChannel)
+
     words := []string{"the", "quick", "brown", "fox"}
     i := 0
 
     t := time.NewTimer(3 * time.Second)
-
-    defer close(wordChannel)
 
     // infinite loop, if somebody is listening to receive  then they will get the next word
     // and if it receives done channel then it terminates the channel.
@@ -37,10 +43,12 @@ func emit(wordChannel chan string, done chan bool) {
 }
 
 func main() {
-    wordCh := make(chan string)
+    channelCh:= make(chan chan string)
     doneCh := make(chan bool)
 
-    go emit(wordCh, doneCh)
+    go emit(channelCh, doneCh)
+
+    wordCh := <-channelCh
 
     for word := range wordCh {
         fmt.Printf("%s ", word)
