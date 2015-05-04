@@ -42,6 +42,10 @@ func worker( urlCh chan  string, sizeCh chan string, workerId int) {
     }
 }
 
+func generator(url string, urlCh chan string) {
+    urlCh <- url
+}
+
 func main() {
 
     urlCh := make(chan string)
@@ -60,7 +64,7 @@ func main() {
     }
 
     for _, url:= range urls {
-        urlCh <- url
+        go generator(url, urlCh)
     }
 
     for i:=0; i <len(urls); i++ {
