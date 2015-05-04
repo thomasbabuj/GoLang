@@ -30,12 +30,21 @@ func getPage(url string) (int, error) {
 }
 
 func main() {
-    url := "http://www.google.com/"
-
-    pageLength, err := getPage(url)
-    if err != nil {
-        os.Exit(1)
+    urls := []string{
+        "http://www.google.com",
+        "http://www.yahoo.com",
+        "http://www.bing.com",
+        "http://www.bbc.co.uk",
     }
 
-    fmt.Printf("%s is length %d \n", url, pageLength )
+    for _, url := range urls {
+        pageLength, err := getPage(url)
+        if err != nil {
+            os.Exit(1)
+        }
+
+         fmt.Printf("%s is length %d \n", url, pageLength )
+    }
+
+
 }
