@@ -28,10 +28,10 @@ func getPage(url string) (int, error) {
     return len(body), nil
 }
 
-func getter( url string, size chan int) {
+func getter( url string, size chan string) {
     length, err := getPage(url)
     if err == nil {
-        size <- length
+        size <- fmt.Sprintf("%s has length %d", url ,length)
     }
 }
 
@@ -43,15 +43,14 @@ func main() {
         "http://www.bbc.co.uk",
     }
 
-    size := make(chan int)
+    size := make(chan string)
 
     for _, url := range urls {
         go getter(url, size)
     }
 
     for i:=0; i< len(urls); i++ {
-        fmt.Printf("%s is length %d \n", urls[i], <-size )
+        fmt.Printf("%s \n", <-size )
     }
-
 
 }
