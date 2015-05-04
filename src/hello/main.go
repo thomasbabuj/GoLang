@@ -22,10 +22,7 @@ func main() {
     go emit(wordChannel)
 
     // receive the things comes from the wordChannel
-    // Here we are using range to receive from channel
-    for word := range wordChannel {
-        fmt.Printf("%s ", word)
-    }
-
-    fmt.Printf("\n")
+    // Implicitly receive channels and its only receive first word
+    word := <- wordChannel
+    fmt.Printf("%s\n", word)
 }
