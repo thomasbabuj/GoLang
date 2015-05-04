@@ -33,12 +33,12 @@ func getPage(url string) (int, error) {
 func worker( urlCh chan  string, sizeCh chan string, workerId int) {
     for {
         url := <-urlCh
-            length, err := getPage(url)
-            if err == nil {
-                sizeCh <- fmt.Sprintf("%s has length %d ( %d )", url ,length, workerId)
-            } else {
-                sizeCh <- fmt.Sprintf("Error getting %s : %s", url ,err)
-            }
+        length, err := getPage(url)
+        if err == nil {
+            sizeCh <- fmt.Sprintf("%s has length %d ( %d )", url ,length, workerId)
+        } else {
+            sizeCh <- fmt.Sprintf("Error getting %s : %s", url ,err)
+        }
     }
 }
 
@@ -51,7 +51,21 @@ func main() {
         go worker(urlCh, sizeCh, i)
     }
 
-    urlCh <- "http://www.oreilly.com/"
-    fmt.Printf("%s \n", <-sizeCh)
+    urls := []string{
+        "http://www.google.com",
+        "http://www.yahoo.com",
+        "http://www.bing.com",
+        "http://www.bbc.co.uk",
+        "http://www.oreilly.com/",
+    }
+
+    for _, url:= range urls {
+        urlCh <- url
+    }
+
+    for i:=0; i <len(urls); i++ {
+        fmt.Printf("%s \n", <-sizeCh )
+    }
+
 
 }
