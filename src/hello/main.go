@@ -22,7 +22,13 @@ func main() {
     go emit(wordChannel)
 
     // receive the things comes from the wordChannel
-    // Implicitly receive channels and its only receive first word
+    // Implicitly receive channels. Since we call three times we get three words
     word := <- wordChannel
+    fmt.Printf("%s\n", word)
+
+    word = <- wordChannel
+    fmt.Printf("%s\n", word)
+
+    word = <- wordChannel
     fmt.Printf("%s\n", word)
 }
