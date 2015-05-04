@@ -21,6 +21,7 @@ func emit(wordChannel chan string, done chan bool) {
                 }
 
             case <- done:
+                fmt.Printf("Go done \n")
                 close(done)
                 return
         }
@@ -37,6 +38,7 @@ func main() {
         fmt.Printf("%s ", <-wordCh)
     }
 
+    // after running 100 times, this will terminates the channel
     doneCh <- true
 }
 
